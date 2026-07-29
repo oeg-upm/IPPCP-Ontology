@@ -11,7 +11,7 @@
      xmlns:skos="http://www.w3.org/2004/02/skos/core#"
      xmlns:vann="http://purl.org/vocab/vann/">
     <owl:Ontology rdf:about="http://w3id.org/def/emissionsInventoryOntology#">
-        <owl:versionIRI rdf:resource="http://w3id.org/def/emissionsInventoryOntology/1.0.0#"/>
+        <owl:versionIRI rdf:resource="http://w3id.org/def/emissionsInventoryOntology/1.0.0"/>
         <dc:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-05-24</dc:created>
         <dc:creator xml:lang="es">Edgar Alexis Martínez</dc:creator>
         <dc:creator xml:lang="es">Lucía Sánchez-González</dc:creator>

@@ -7,12 +7,12 @@
 @base <http://w3id.org/def/emissionsInventoryOntology#> .
 
 <http://w3id.org/def/emissionsInventoryOntology#> rdf:type owl:Ontology ;
-                                                   owl:versionIRI <http://w3id.org/def/emissionsInventoryOntology/1.0.0#> ;
+                                                   owl:versionIRI <http://w3id.org/def/emissionsInventoryOntology/1.0.0> ;
                                                    <http://purl.org/dc/elements/1.1/created> "2024-05-24"^^xsd:date ;
                                                    <http://purl.org/dc/elements/1.1/creator> "Edgar Alexis Martínez"@es ,
                                                                                              "Lucía Sánchez-González"@es ,
                                                                                              "Oscar Corcho"@es ;
-                                                   <http://purl.org/dc/elements/1.1/description> "City-level environmental and climate ontology for Local Green Deal. Developed within the IPPCP project."@en ;
+                                                   <http://purl.org/dc/elements/1.1/description> "City-level environmental and climate ontology for Local Green Deal."@en ;
                                                    <http://purl.org/dc/elements/1.1/license> <https://creativecommons.org/licenses/by/4.0/> ;
                                                    <http://purl.org/dc/elements/1.1/title> "The Emissions lnventory Ontology"@en ;
                                                    <http://purl.org/vocab/vann/preferredNamespacePrefix> "eio" ;

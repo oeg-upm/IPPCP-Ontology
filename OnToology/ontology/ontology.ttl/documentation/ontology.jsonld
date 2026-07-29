@@ -95,7 +95,7 @@
     "@id" : "http://w3id.org/def/emissionsInventoryOntology#"
   } ],
   "http://www.w3.org/2002/07/owl#versionIRI" : [ {
-    "@id" : "http://w3id.org/def/emissionsInventoryOntology/1.0.0#"
+    "@id" : "http://w3id.org/def/emissionsInventoryOntology/1.0.0"
   } ],
   "http://www.w3.org/2002/07/owl#versionInfo" : [ {
     "@value" : "1.0.0"
