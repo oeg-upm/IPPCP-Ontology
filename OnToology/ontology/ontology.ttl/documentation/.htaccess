@@ -12,7 +12,7 @@ AddType application/ld+json .jsonld
 RewriteEngine On
 
 # Redirect version 1.0.0 to the latest documentation
-RewriteRule ^1\.0\.0/?$ index-en.html [R=303,L]
+RewriteRule ^1\.0\.0/?$ https://oeg-upm.github.io/IPPCP-Ontology/OnToology/ontology/ontology.ttl/documentation/index-en.html [R=303,L]
 
 #Change the path to the folder here
 RewriteBase /documentation 
