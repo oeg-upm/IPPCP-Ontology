@@ -34,14 +34,14 @@ The following diagram provides a visual representation of the main concepts and 
 
 The repository should contain (at least) the following folders:
 
-| Folder | Description |
-|--------|--------------|
-| **diagrams/** | Stores diagrams and other resources representing the conceptual model of the ontology (e.g., class hierarchies, relationships). |
-| **documentation/** | Stores the HTML or human oriented documentation of the ontology and related artefacts. |
-| **examples/** | Includes examples that demonstrate how to instantiate or apply the ontology in real data scenarios. |
-| **ontology/** | Contains the actual ontology implementation files in formats such as `.owl`, `.rdf`, `.ttl`, or `.jsonld`. |
+| Folder                  | Description                                                                                                                                      |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **diagrams/**     | Stores diagrams and other resources representing the conceptual model of the ontology (e.g., class hierarchies, relationships).                  |
+| **Ontoology/**    | Stores the HTML or human oriented documentation of the ontology and related artefacts.                                                           |
+| **examples/**     | Includes examples that demonstrate how to instantiate or apply the ontology in real data scenarios.                                              |
+| **ontology/**     | Contains the actual ontology implementation files in formats such as`.owl`, `.rdf`, `.ttl`, or `.jsonld`.                                |
 | **requirements/** | Contains all documents used to define the ontology’s requirements: data example, competency questions, functional requirements, use cases, etc. |
-| **shapes/** | Contains the SHACL shapes used to define and validate ontology constraints. |
+|                         |                                                                                                                                                  |
 
 # Project maintenance
 
