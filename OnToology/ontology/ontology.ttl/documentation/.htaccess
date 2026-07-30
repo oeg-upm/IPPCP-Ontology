@@ -10,6 +10,10 @@ AddType application/n-triples .n3
 AddType application/ld+json .jsonld
 # Rewrite engine setup
 RewriteEngine On
+
+# Redirect version 1.0.0 to the latest documentation
+RewriteRule ^1\.0\.0/?$ index-en.html [R=303,L]
+
 #Change the path to the folder here
 RewriteBase /documentation 
 
