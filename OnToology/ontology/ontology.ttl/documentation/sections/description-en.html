@@ -1,222 +1,31 @@
-```html
-<h2 id="desc" class="list">
-  The Emissions Inventory Ontology: Description
-  <span class="backlink">
-    back to <a href="#toc">Table of Contents</a>
-  </span>
-</h2>
+<h2 id="desc" class="list">The Emissions Inventory Ontology: Description <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
 
-<div class="markdown">
+<span class="markdown">
+The **Emissions Inventory Ontology (EIO)** provides a semantic model for representing emission assessments together with the contextual information required to interpret them. It enables emission values to be associated with a specific indicator, geographical feature, reporting period, emission sector, numerical value, and unit of measurement.
 
-  <p>
-    The <strong>Emissions Inventory Ontology (EIO)</strong> models
-    <strong>emission assessments</strong> and the contextual information
-    required to interpret them. The following diagram provides an overview of
-    the ontology’s main concepts and relationships.
-  </p>
+The ontology is centred on the class [s4city:KeyPerformanceIndicatorAssessment](https://saref.etsi.org/saref4city/KeyPerformanceIndicatorAssessment), which represents an individual assessment of an emission-related key performance indicator. Each assessment can be connected to the indicator being quantified through [s4city:quantifiesKPI](https://saref.etsi.org/saref4city/quantifiesKPI), to the corresponding geographical feature through [s4city:refersToFeature](https://saref.etsi.org/saref4city/refersToFeature), and to its reporting period through [s4city:refersToTime](https://saref.etsi.org/saref4city/refersToTime).
 
-  <figure style="text-align: center; margin: 2em auto;">
-    <img
-      src="diagrams/diagram.png"
-      alt="Diagram showing the main concepts and relationships of the Emissions Inventory Ontology"
-      style="max-width: 100%; height: auto;"
-    >
-    <figcaption style="margin-top: 0.75em;">
-      <strong>Figure 1.</strong> Conceptual overview of the Emissions Inventory Ontology.
-    </figcaption>
-  </figure>
+The numerical result of an assessment is represented using [saref:hasValue](https://saref.etsi.org/core/hasValue), while its unit of measurement is specified through [saref:isMeasuredIn](https://saref.etsi.org/core/isMeasuredIn). The assessment is also related to an emission sector through [eio:refersToSector](#refersToSector).
 
-  <h3>Emission assessments</h3>
+Emission sectors are represented by the class [eio:Sector](#Sector). These sectors are organised hierarchically using [skos:broader](http://www.w3.org/2004/02/skos/core#broader), allowing a sector to be connected to broader categories and enabling the representation of direct and indirect subsectors.
 
-  <p>
-    The central concept is
-    <a href="https://saref.etsi.org/saref4city/KeyPerformanceIndicatorAssessment"
-       target="_blank"
-       rel="noopener noreferrer">
-      <code>s4city:KeyPerformanceIndicatorAssessment</code>
-    </a>,
-    which represents an individual emission assessment or reported emission
-    data item.
-  </p>
+The geographical context of an emission assessment can be represented through concepts such as [s4city:City](https://saref.etsi.org/saref4city/City), [s4city:District](https://saref.etsi.org/saref4city/District), and [eio:Cell](#Cell). The `eio:Cell` class supports the representation of spatial grid cells used in geographically disaggregated emission inventories.
 
-  <p>Each assessment may specify:</p>
+Temporal information is represented using concepts from [OWL-Time](https://www.w3.org/TR/owl-time/). Reporting periods can be modelled as [time:DateTimeInterval](http://www.w3.org/2006/time#DateTimeInterval) instances, described through [time:DateTimeDescription](http://www.w3.org/2006/time#DateTimeDescription), and associated with a calendar year through [time:year](http://www.w3.org/2006/time#year).
 
-  <ul>
-    <li>
-      the <strong>emission indicator</strong> through
-      <a href="https://saref.etsi.org/saref4city/quantifiesKPI"
-         target="_blank"
-         rel="noopener noreferrer">
-        <code>s4city:quantifiesKPI</code>
-      </a>;
-    </li>
+EIO reuses terms from established ontologies and vocabularies to improve interoperability:
 
-    <li>
-      the <strong>geographical feature</strong> through
-      <a href="https://saref.etsi.org/saref4city/refersToFeature"
-         target="_blank"
-         rel="noopener noreferrer">
-        <code>s4city:refersToFeature</code>
-      </a>;
-    </li>
+* [SAREF](https://saref.etsi.org/) for values and units of measurement.
+* [SAREF4CITY](https://saref.etsi.org/saref4city/) for KPI assessments, geographical features, and temporal references.
+* [OWL-Time](https://www.w3.org/TR/owl-time/) for reporting periods and temporal descriptions.
+* [SKOS](https://www.w3.org/TR/skos-reference/) for the hierarchical organisation of emission sectors.
+* [QUDT](https://qudt.org/) for standard units of measurement.
 
-    <li>
-      the <strong>reporting period</strong> through
-      <a href="https://saref.etsi.org/saref4city/refersToTime"
-         target="_blank"
-         rel="noopener noreferrer">
-        <code>s4city:refersToTime</code>
-      </a>;
-    </li>
+The following diagram presents an overview of the main classes and relationships included in the conceptualisation of the Emissions Inventory Ontology. </span>
 
-    <li>
-      the <strong>emission sector</strong> through
-      <a href="#refersToSector">
-        <code>eio:refersToSector</code>
-      </a>;
-    </li>
+<center>
+  <img src="../../../../../diagrams/diagram.png" alt="Conceptual diagram of the Emissions Inventory Ontology">
+  <figcaption>Figure 1.- Conceptualisation of the Emissions Inventory Ontology.</figcaption>
+</center>
 
-    <li>
-      the <strong>numerical value</strong> through
-      <a href="https://saref.etsi.org/core/hasValue"
-         target="_blank"
-         rel="noopener noreferrer">
-        <code>saref:hasValue</code>
-      </a>;
-    </li>
 
-    <li>
-      the <strong>unit of measurement</strong> through
-      <a href="https://saref.etsi.org/core/isMeasuredIn"
-         target="_blank"
-         rel="noopener noreferrer">
-        <code>saref:isMeasuredIn</code>
-      </a>.
-    </li>
-  </ul>
-
-  <h3>Emission sectors</h3>
-
-  <p>
-    Emission sectors are represented by
-    <a href="#Sector"><code>eio:Sector</code></a>
-    and organised hierarchically using
-    <a href="http://www.w3.org/2004/02/skos/core#broader"
-       target="_blank"
-       rel="noopener noreferrer">
-      <code>skos:broader</code>
-    </a>.
-    This structure makes it possible to connect each sector with its direct
-    and indirect subsectors.
-  </p>
-
-  <h3>Spatial and temporal context</h3>
-
-  <p>
-    The ontology supports geographical entities such as
-    <a href="https://saref.etsi.org/saref4city/City"
-       target="_blank"
-       rel="noopener noreferrer">
-      <code>s4city:City</code>
-    </a>,
-    <a href="https://saref.etsi.org/saref4city/District"
-       target="_blank"
-       rel="noopener noreferrer">
-      <code>s4city:District</code>
-    </a>,
-    and
-    <a href="#Cell"><code>eio:Cell</code></a>.
-  </p>
-
-  <p>
-    Temporal information is represented using
-    <a href="http://www.w3.org/2006/time#DateTimeInterval"
-       target="_blank"
-       rel="noopener noreferrer">
-      <code>time:DateTimeInterval</code>
-    </a>,
-    <a href="http://www.w3.org/2006/time#DateTimeDescription"
-       target="_blank"
-       rel="noopener noreferrer">
-      <code>time:DateTimeDescription</code>
-    </a>,
-    and
-    <a href="http://www.w3.org/2006/time#year"
-       target="_blank"
-       rel="noopener noreferrer">
-      <code>time:year</code>
-    </a>.
-  </p>
-
-  <h3>Reused ontologies and vocabularies</h3>
-
-  <p>
-    EIO reuses terms from established ontologies and vocabularies to promote
-    interoperability and avoid redefining general-purpose concepts:
-  </p>
-
-  <ul>
-    <li>
-      <strong>
-        <a href="https://saref.etsi.org/"
-           target="_blank"
-           rel="noopener noreferrer">
-          SAREF
-        </a>
-      </strong>
-      and
-      <strong>
-        <a href="https://saref.etsi.org/saref4city/"
-           target="_blank"
-           rel="noopener noreferrer">
-          SAREF4CITY
-        </a>
-      </strong>
-      for values, units, geographical features, KPI assessments, and temporal
-      references;
-    </li>
-
-    <li>
-      <strong>
-        <a href="https://www.w3.org/TR/owl-time/"
-           target="_blank"
-           rel="noopener noreferrer">
-          OWL-Time
-        </a>
-      </strong>
-      for reporting periods and calendar years;
-    </li>
-
-    <li>
-      <strong>
-        <a href="https://www.w3.org/TR/skos-reference/"
-           target="_blank"
-           rel="noopener noreferrer">
-          SKOS
-        </a>
-      </strong>
-      for hierarchical sector classifications;
-    </li>
-
-    <li>
-      <strong>
-        <a href="https://qudt.org/"
-           target="_blank"
-           rel="noopener noreferrer">
-          QUDT
-        </a>
-      </strong>
-      for units of measurement.
-    </li>
-  </ul>
-
-  <p>
-    In summary, EIO defines the <strong>domain-specific emission indicators</strong>
-    and <strong>sector classifications</strong> required by an emissions
-    inventory, while relying on established external vocabularies for more
-    general concepts such as measurements, units, locations, time intervals,
-    and hierarchical relationships.
-  </p>
-
-</div>
-```
