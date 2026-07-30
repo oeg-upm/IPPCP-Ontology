@@ -1,3 +1,222 @@
-<h2 id="desc" class="list">The Emissions lnventory Ontology: Description <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+```html
+<h2 id="desc" class="list">
+  The Emissions Inventory Ontology: Description
+  <span class="backlink">
+    back to <a href="#toc">Table of Contents</a>
+  </span>
+</h2>
 
-<span class="markdown">City-level environmental and climate ontology for Local Green Deal.</span>
+<div class="markdown">
+
+  <p>
+    The <strong>Emissions Inventory Ontology (EIO)</strong> models
+    <strong>emission assessments</strong> and the contextual information
+    required to interpret them. The following diagram provides an overview of
+    the ontology’s main concepts and relationships.
+  </p>
+
+  <figure style="text-align: center; margin: 2em auto;">
+    <img
+      src="diagrams/diagram.png"
+      alt="Diagram showing the main concepts and relationships of the Emissions Inventory Ontology"
+      style="max-width: 100%; height: auto;"
+    >
+    <figcaption style="margin-top: 0.75em;">
+      <strong>Figure 1.</strong> Conceptual overview of the Emissions Inventory Ontology.
+    </figcaption>
+  </figure>
+
+  <h3>Emission assessments</h3>
+
+  <p>
+    The central concept is
+    <a href="https://saref.etsi.org/saref4city/KeyPerformanceIndicatorAssessment"
+       target="_blank"
+       rel="noopener noreferrer">
+      <code>s4city:KeyPerformanceIndicatorAssessment</code>
+    </a>,
+    which represents an individual emission assessment or reported emission
+    data item.
+  </p>
+
+  <p>Each assessment may specify:</p>
+
+  <ul>
+    <li>
+      the <strong>emission indicator</strong> through
+      <a href="https://saref.etsi.org/saref4city/quantifiesKPI"
+         target="_blank"
+         rel="noopener noreferrer">
+        <code>s4city:quantifiesKPI</code>
+      </a>;
+    </li>
+
+    <li>
+      the <strong>geographical feature</strong> through
+      <a href="https://saref.etsi.org/saref4city/refersToFeature"
+         target="_blank"
+         rel="noopener noreferrer">
+        <code>s4city:refersToFeature</code>
+      </a>;
+    </li>
+
+    <li>
+      the <strong>reporting period</strong> through
+      <a href="https://saref.etsi.org/saref4city/refersToTime"
+         target="_blank"
+         rel="noopener noreferrer">
+        <code>s4city:refersToTime</code>
+      </a>;
+    </li>
+
+    <li>
+      the <strong>emission sector</strong> through
+      <a href="#refersToSector">
+        <code>eio:refersToSector</code>
+      </a>;
+    </li>
+
+    <li>
+      the <strong>numerical value</strong> through
+      <a href="https://saref.etsi.org/core/hasValue"
+         target="_blank"
+         rel="noopener noreferrer">
+        <code>saref:hasValue</code>
+      </a>;
+    </li>
+
+    <li>
+      the <strong>unit of measurement</strong> through
+      <a href="https://saref.etsi.org/core/isMeasuredIn"
+         target="_blank"
+         rel="noopener noreferrer">
+        <code>saref:isMeasuredIn</code>
+      </a>.
+    </li>
+  </ul>
+
+  <h3>Emission sectors</h3>
+
+  <p>
+    Emission sectors are represented by
+    <a href="#Sector"><code>eio:Sector</code></a>
+    and organised hierarchically using
+    <a href="http://www.w3.org/2004/02/skos/core#broader"
+       target="_blank"
+       rel="noopener noreferrer">
+      <code>skos:broader</code>
+    </a>.
+    This structure makes it possible to connect each sector with its direct
+    and indirect subsectors.
+  </p>
+
+  <h3>Spatial and temporal context</h3>
+
+  <p>
+    The ontology supports geographical entities such as
+    <a href="https://saref.etsi.org/saref4city/City"
+       target="_blank"
+       rel="noopener noreferrer">
+      <code>s4city:City</code>
+    </a>,
+    <a href="https://saref.etsi.org/saref4city/District"
+       target="_blank"
+       rel="noopener noreferrer">
+      <code>s4city:District</code>
+    </a>,
+    and
+    <a href="#Cell"><code>eio:Cell</code></a>.
+  </p>
+
+  <p>
+    Temporal information is represented using
+    <a href="http://www.w3.org/2006/time#DateTimeInterval"
+       target="_blank"
+       rel="noopener noreferrer">
+      <code>time:DateTimeInterval</code>
+    </a>,
+    <a href="http://www.w3.org/2006/time#DateTimeDescription"
+       target="_blank"
+       rel="noopener noreferrer">
+      <code>time:DateTimeDescription</code>
+    </a>,
+    and
+    <a href="http://www.w3.org/2006/time#year"
+       target="_blank"
+       rel="noopener noreferrer">
+      <code>time:year</code>
+    </a>.
+  </p>
+
+  <h3>Reused ontologies and vocabularies</h3>
+
+  <p>
+    EIO reuses terms from established ontologies and vocabularies to promote
+    interoperability and avoid redefining general-purpose concepts:
+  </p>
+
+  <ul>
+    <li>
+      <strong>
+        <a href="https://saref.etsi.org/"
+           target="_blank"
+           rel="noopener noreferrer">
+          SAREF
+        </a>
+      </strong>
+      and
+      <strong>
+        <a href="https://saref.etsi.org/saref4city/"
+           target="_blank"
+           rel="noopener noreferrer">
+          SAREF4CITY
+        </a>
+      </strong>
+      for values, units, geographical features, KPI assessments, and temporal
+      references;
+    </li>
+
+    <li>
+      <strong>
+        <a href="https://www.w3.org/TR/owl-time/"
+           target="_blank"
+           rel="noopener noreferrer">
+          OWL-Time
+        </a>
+      </strong>
+      for reporting periods and calendar years;
+    </li>
+
+    <li>
+      <strong>
+        <a href="https://www.w3.org/TR/skos-reference/"
+           target="_blank"
+           rel="noopener noreferrer">
+          SKOS
+        </a>
+      </strong>
+      for hierarchical sector classifications;
+    </li>
+
+    <li>
+      <strong>
+        <a href="https://qudt.org/"
+           target="_blank"
+           rel="noopener noreferrer">
+          QUDT
+        </a>
+      </strong>
+      for units of measurement.
+    </li>
+  </ul>
+
+  <p>
+    In summary, EIO defines the <strong>domain-specific emission indicators</strong>
+    and <strong>sector classifications</strong> required by an emissions
+    inventory, while relying on established external vocabularies for more
+    general concepts such as measurements, units, locations, time intervals,
+    and hierarchical relationships.
+  </p>
+
+</div>
+```
